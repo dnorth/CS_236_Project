@@ -227,11 +227,9 @@ State Lex::nextState() {
 			}
 			else 
 			{ //Every other character
-				
 				result = SingleLineComment;
-				input->advance();
 			}
-			
+			input->advance();
 			break;
 
 
@@ -288,7 +286,7 @@ State Lex::getNextState() {
     //checking for letters and setting the result to Id will probably best be handled by
     //if statements rather then the switch statement.
 
-	if (isspace(currentCharacter))
+	if (currentCharacter == ' ')
 	{
 		result= Whitespace;
 	}
@@ -343,10 +341,4 @@ void Lex::storeToken(Token* token) {
 
 
     
-}
-
-int main(int argc, char* argv[]) {
-    Lex lex(argv[1]);
-    cout << lex.toString();
-    return 0;
 }
